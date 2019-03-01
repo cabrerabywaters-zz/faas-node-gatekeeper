@@ -1,5 +1,11 @@
 # Gatekeeper
 
+## Installing
+
+```
+npm install --save faas-node-gatekeeper
+```
+
 ## How to use:
 
 ```
