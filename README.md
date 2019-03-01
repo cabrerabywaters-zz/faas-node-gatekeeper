@@ -40,11 +40,11 @@ Basicaly the process is as follows:
 
 1.- Create and upload your secret key to HASH the body of your message using the CLI
 
-3.- Modify your code so it can handle the hashed body
+2.- Modify your code so it can handle the hashed body
 
 4.- Send your request to the server as you normally would, but include a Hmac Header with the hashed body, using the your secret key
 
-5.- Enjoy!
+4.- Enjoy!
 
 ### 1) Creating a secret
 
@@ -54,7 +54,7 @@ Using the FaaS-CLI we can easily create and upload the key to our server
 echo -n "<your-secret>" | faas-cli secret create payload-secret
 ```
 
-In this case, we just created a secret key named "payload-secret" with value "<your-secret>"
+In this case, we just created a secret key named "payload-secret" with value "your-secret"
 
 Once we have this in place, we need to include the secret in our function's YML
 
@@ -71,7 +71,7 @@ functions:
       - payload-secret
 ```
 
-### 3) Modify you code
+### 2) Modify you code
 
 Now we will need to modify our code to check for the proper hash of the body.
 When you sign a function with faas-cli with a given key, the created request will include a Http_Hmac header with the hashed version of your message body, thats what we need to check!
@@ -105,7 +105,7 @@ First, we require Gatekeeper, then we validate the body using the validate() fun
 
 Gatekeeper will pull the secret from the corresponding file, Hash the body of your message and compare it yo the hashed message coming from the Hmac header. If the hashes match, then good to go.
 
-### 4) Send request
+### 3) Send request
 
 Lets try to send a curl request to our OpenFaaS. You could use the invoke function of the CLI that does all of this out of the box, but just for demo purposes:
 
@@ -148,4 +148,4 @@ If everything went well, you should see
 }
 ```
 
-### 5) Enjoy!
+### 4) Enjoy!
