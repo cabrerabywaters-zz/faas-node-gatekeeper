@@ -1,0 +1,15 @@
+{
+  "name": "faas-node-gatekeeper",
+  "version": "1.0.0",
+  "description": "Checks that your FaaS messagew are properly signed and hashed",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "cabrerabywaters@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "crypto": "^1.0.1",
+    "fs": "0.0.1-security"
+  }
+}
